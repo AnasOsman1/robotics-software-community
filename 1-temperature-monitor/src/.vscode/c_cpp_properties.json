@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/ros/${env:ROS_DISTRO}/include",
+                "${workspaceFolder}/cpp_ws/**"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "/opt/ros/${env:ROS_DISTRO}/include",
+                    "${workspaceFolder}/cpp_ws/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

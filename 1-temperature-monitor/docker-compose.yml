@@ -1,0 +1,30 @@
+services:
+  temp_publisher:
+    build:
+      context: .
+      dockerfile: src/python_ws/Dockerfile
+    image: temp_publisher_image
+    container_name: temperature_publisher
+    networks:
+      - ros2_network
+    command: ros2 run temp_publisher temp_publisher
+    environment:
+      - ROS_DOMAIN_ID=4
+    
+  temp_subscriber:
+    build:
+      context: .
+      dockerfile: src/cpp_ws/Dockerfile
+    image: temp_subscriber_image
+    container_name: temperature_subscriber
+    networks:
+      - ros2_network
+    command: ros2 run temp_subscriber temp_subscriber
+    environment:
+      - ROS_DOMAIN_ID=4
+    depends_on:
+      - temp_publisher
+
+networks:
+  ros2_network:
+    driver: bridge
